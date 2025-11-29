@@ -2,7 +2,6 @@ import React, { useMemo } from "react";
 import { Card } from "@/components/ui/card";
 import { useRealTime } from "@/contexts/RealTimeContext";
 
-// Size of chips depending on frequency
 function sizeForCount(count, max) {
   if (!max) return "text-xs px-2 py-1";
   const pct = count / max;

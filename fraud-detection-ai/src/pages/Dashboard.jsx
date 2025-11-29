@@ -20,6 +20,17 @@ import UserBehaviorGraph from "@/components/dashboard/UserBehaviorGraph";
 import Heatmap from "@/components/dashboard/Heatmap";
 import TransactionDNA from "@/components/dashboard/TransactionDNA";
 
+// ⭐ Core Feature Components
+import ExpenseTrackerCard from "@/components/dashboard/ExpenseTrackerCard"; 
+import PaymentDemoCard from "@/components/dashboard/PaymentDemoCard"; 
+
+// ⭐ NEW FEATURE COMPONENTS
+import BlockchainWalletCard from "@/components/dashboard/BlockchainWalletCard"; // <-- NEW WALLET IMPORTED
+import FinancialLiteracyCard from "@/components/dashboard/FinancialLiteracyCard"; // <-- NEW LITERACY MODULE IMPORTED
+
+// 🤖 NEW AI Chatbot Component
+import AIChatbot from "@/components/AIChatbot"; 
+
 const Dashboard = () => {
   const [activeView, setActiveView] = useState("dashboard");
 
@@ -53,41 +64,58 @@ const Dashboard = () => {
       {activeView === "dashboard" ? (
         <main className="container mx-auto px-4 py-8 space-y-8 animate-in fade-in duration-500">
 
-          {/* ⭐ AI STATS OVERVIEW */}
+          {/* ⭐ ROW 1: AI STATS OVERVIEW */}
           <StatsOverview />
 
-          {/* ⭐ NEW AI Fraud Cards */}
+            {/* ⭐ ROW 2: BLOCKCHAIN WALLET, API, and SECURITY TRACE (3 equal columns) */}
           <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
-            <RiskScoreCard />
-            <AnomalyReasons />
-            <TransactionDNA />
-          </div>
+                
+                {/* 1. Blockchain Wallet Card (Web3/UPI Remittance) */}
+                <BlockchainWalletCard /> 
 
-          {/* ⭐ CHARTS + BEHAVIOR GRAPH + FEEDS */}
-          <div className="grid grid-cols-1 lg:grid-cols-3 gap-6">
+                {/* 2. API Integration Demo (Mock Razorpay & Stock API) */}
+                <PaymentDemoCard /> 
+
+                {/* 3. Transaction DNA (Security Trace/Blockchain Hashing) */}
+                <TransactionDNA />
+                
+          </div>
+          
+          {/* ⭐ ROW 3: EXPENSE TRACKER */}
+          <ExpenseTrackerCard /> 
+
+            {/* ⭐ ROW 4: ANALYTICS, LITERACY, and LIVE FEEDS (4 columns / 2+2 split) */}
+          <div className="grid grid-cols-1 lg:grid-cols-4 gap-6">
             
-            {/* Left Side Charts */}
+            {/* Left Side Analytics & Literacy (Col 1-2) */}
             <div className="lg:col-span-2 space-y-6">
               <FraudChart />
-              <UserBehaviorGraph />
+              <FinancialLiteracyCard /> {/* <-- RENDERED HERE */}
             </div>
 
-            {/* Right Side Live Updates */}
-            <div className="space-y-6">
+            {/* Right Side Live Updates (Col 3-4) */}
+            <div className="lg:col-span-2 space-y-6">
               <TransactionFeed />
               <AlertsPanel />
+              <RiskScoreCard /> 
             </div>
           </div>
 
-          {/* ⭐ HEATMAP + LIVE MONITOR */}
-          <div className="grid grid-cols-1 lg:grid-cols-2 gap-6">
-            <Heatmap />
-            <LiveMonitor />
+          {/* ⭐ ROW 5: BEHAVIORAL DATA */}
+          <div className="grid grid-cols-1 lg:grid-cols-3 gap-6">
+            <UserBehaviorGraph className="lg:col-span-1" />
+            <Heatmap className="lg:col-span-2" />
           </div>
+            <LiveMonitor />
+
         </main>
       ) : (
         <AdminPanel />
       )}
+      
+      {/* 🤖 AI Chatbot Component */}
+      <AIChatbot />
+
     </div>
   );
 };

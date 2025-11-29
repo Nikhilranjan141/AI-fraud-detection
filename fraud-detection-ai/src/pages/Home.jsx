@@ -20,9 +20,9 @@ const Home = () => {
           </div>
 
           <h1 className="text-5xl md:text-6xl lg:text-7xl font-bold text-foreground leading-tight">
-            AI-powered real
+            AI & Blockchain-Powered personal
             <span className="block bg-gradient-to-r from-primary via-primary to-accent bg-clip-text text-transparent">
-              Time Fraud-Detection
+              Finance Tracker
             </span>
           </h1>
 

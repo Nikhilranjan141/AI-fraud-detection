@@ -2,11 +2,6 @@ import React from "react";
 import { Card } from "@/components/ui/card";
 import { useBehaviorTracker } from "@/hooks/useBehaviorTracker";
 
-/**
- * Simple bar chart using inline styles.
- * Expects profiles shaped like: { [userId]: { activityScore: number, loginCount, avgAmount, lastLocation } }
- */
-
 export default function UserBehaviorGraph({ top = 6 }) {
   const profiles = useBehaviorTracker() || {};
   const entries = Object.entries(profiles);
@@ -20,7 +15,6 @@ export default function UserBehaviorGraph({ top = 6 }) {
     );
   }
 
-  // compute simple score (if missing, fallback to derived)
   const scored = entries
     .map(([id, p]) => {
       const score = p.activityScore ?? (p.loginCount ? Math.min(100, p.loginCount * 5) : 10);

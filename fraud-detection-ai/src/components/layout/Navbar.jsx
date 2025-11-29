@@ -14,7 +14,6 @@ const Navbar = () => {
     { href: "/dashboard", label: "Dashboard" },
   ];
 
-  // ❌ Removed TypeScript type → ✔ Now pure JS
   const isActive = (path) => location.pathname === path;
 
   return (
@@ -25,10 +24,9 @@ const Navbar = () => {
             <div className="p-2 rounded-lg bg-primary/10">
               <Shield className="h-5 w-5 text-primary" />
             </div>
-            <span className="font-bold text-lg text-foreground">Fraud Detection AI</span>
+            <span className="font-bold text-lg text-foreground">SecureFin</span>
           </Link>
 
-          {/* Desktop Navigation */}
           <div className="hidden md:flex items-center gap-6">
             {links.map((link) => (
               <Link
@@ -54,7 +52,6 @@ const Navbar = () => {
             </Link>
           </div>
 
-          {/* Mobile Menu Button */}
           <button
             onClick={() => setIsOpen(!isOpen)}
             className="md:hidden p-2 text-foreground"
@@ -63,7 +60,6 @@ const Navbar = () => {
           </button>
         </div>
 
-        {/* Mobile Navigation */}
         {isOpen && (
           <div className="md:hidden py-4 border-t border-border">
             <div className="flex flex-col gap-4">

@@ -21,7 +21,7 @@ const DashboardHeader = ({ activeView, setActiveView }) => {
               <Shield className="h-6 w-6 text-primary" />
             </div>
             <div>
-              <h1 className="text-xl font-bold text-foreground">RakshakX</h1>
+              <h1 className="text-xl font-bold text-foreground">SecureFin</h1>
               <p className="text-sm text-muted-foreground">Real-time Financial Security System</p>
             </div>
           </div>
